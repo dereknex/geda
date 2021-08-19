@@ -62,8 +62,8 @@ $(GOLANGCI_LINT):
 	curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(BIN_DIR) v1.23.6
 
 test:
-	@go test -race -coverprofile=coverage.out ./...
-	@go tool cover -func coverage.out | tail -n 1 | awk '{ print "Total coverage: " $$3 }'
+	@go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+	@go tool cover -func coverage.txt | tail -n 1 | awk '{ print "Total coverage: " $$3 }'
 	
 
 build-local:

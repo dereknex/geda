@@ -101,7 +101,10 @@ jobs:
         run: make test
       - name: Codecov
         if: matrix.target_arch == 'amd64' && matrix.target_os == 'linux'
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./coverage.txt # optional
       # - name: Run make release to build and archive binaries
       #   run: |
       #     mkdir -p ${{ env.ARCHIVE_OUTDIR }}

@@ -43,7 +43,14 @@ export GOFLAGS ?= -mod=vendor -p=$(CPUS) -count=1
 #
 
 # All targets.
-.PHONY: lint test build
+.PHONY: modtidy  check-diff lint test build
+
+modtidy:
+	go mod tidy
+
+check-diff:
+	git diff --exit-code ./go.mod # check no changes
+	git diff --exit-code ./go.sum # check no changes
 
 build: build-local
 

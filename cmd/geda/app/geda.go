@@ -3,6 +3,7 @@ package app
 import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap/zapcore"
+	"kubeease.com/kubeease/geda/cmd/geda/app/provision"
 	"kubeease.com/kubeease/geda/pkg/log"
 )
 
@@ -20,5 +21,6 @@ func NewCommand() *cobra.Command {
 			}
 		},
 	}
+	cmd.AddCommand(provision.NewCommand())
 	return cmd
 }

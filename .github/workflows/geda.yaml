@@ -6,10 +6,10 @@ name: geda
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [main, release-*]
-    tags: [v*]
+    branches: [ main, release-* ]
+    tags: [ v* ]
   pull_request:
-    branches: [main, release-*]
+    branches: [ main, release-* ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,8 +29,8 @@ jobs:
       TEST_OUTPUT_FILE_PREFIX: test_report
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
-        target_arch: [arm64, amd64]
+        os: [ ubuntu-latest, macOS-latest ]
+        target_arch: [ arm64, amd64 ]
         include:
           - os: ubuntu-latest
             target_os: linux

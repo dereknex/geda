@@ -4,9 +4,12 @@ go 1.16
 
 require (
 	github.com/fatih/color v1.12.0
+	github.com/pkg/errors v0.9.1
 	github.com/rancher/k3s v1.21.5-0.20210816214209-3e250fdbab72
 	github.com/spf13/cobra v1.2.1
+	github.com/stretchr/testify v1.7.0
 	go.uber.org/zap v1.19.0
+	k8s.io/apimachinery v0.21.4
 )
 
 replace (
@@ -32,10 +35,8 @@ replace (
 	github.com/juju/errors => github.com/k3s-io/nocode v0.0.0-20200630202308-cb097102c09f
 	github.com/kubernetes-sigs/cri-tools => github.com/k3s-io/cri-tools v1.21.0-k3s1
 	github.com/matryer/moq => github.com/rancher/moq v0.0.0-20190404221404-ee5226d43009
-	// LOOK TO scripts/download FOR THE VERSION OF runc THAT WE ARE BUILDING/SHIPPING
 	github.com/opencontainers/runc => github.com/opencontainers/runc v1.0.0-rc95
 	github.com/opencontainers/runtime-spec => github.com/opencontainers/runtime-spec v1.0.3-0.20210316141917-a8c4a9ee0f6b
-	// github.com/rancher/k3s/pkg/data => ./pkg/data
 	go.etcd.io/etcd => github.com/k3s-io/etcd v0.5.0-alpha.5.0.20201208200253-50621aee4aea
 	golang.org/x/crypto => golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83
 	golang.org/x/net => golang.org/x/net v0.0.0-20210224082022-3d97a244fca7

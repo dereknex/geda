@@ -1,5 +1,5 @@
 run:
-  # concurrency: 2
+  concurrency: 4
   deadline: 5m
 
 linter-settings:
@@ -9,7 +9,6 @@ linter-settings:
 
 linters:
   enable:
-    - golint
     - goconst
     - gofmt
     - goimports

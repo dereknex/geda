@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  dev:
+    image: golang:1.16
+    environment:
+      HTTP_PROXY: 172.21.54.120:7890
+      HTTPS_PROXY: 172.21.54.120:7890
+    volumes:
+      - ./:/workspace/geda
+    command: [ "sleep", "3000" ]

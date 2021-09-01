@@ -6,7 +6,7 @@ import (
 	"net"
 	"path/filepath"
 
-	"github.com/rancher/k3s/pkg/agent"
+	"kubeease.com/kubeease/geda/pkg/k3s"
 
 	"github.com/pkg/errors"
 	"github.com/rancher/k3s/pkg/cli/cmds"
@@ -27,6 +27,7 @@ func fillServerConfig(cfg *server.Config) error {
 		return errors.Wrapf(err, "invalid cluster-cidr %s", DefaultCIDR)
 	}
 	cfg.ControlConfig.ClusterIPRanges = append(cfg.ControlConfig.ClusterIPRanges, ipNet)
+
 	cfg.ControlConfig.DataDir, err = datadir.LocalHome(DefaultDataDir, true)
 	if err != nil {
 		return errors.Wrapf(err, "invaild data dir %s", DefaultDataDir)
@@ -37,6 +38,7 @@ func fillServerConfig(cfg *server.Config) error {
 		return errors.Wrapf(err, "parse node port range failed: %s", DefaultNodePortRange)
 	}
 	cfg.ControlConfig.HTTPSPort = DefaultHTTPSPort
+	cfg.ControlConfig.SupervisorPort = DefaultHTTPSPort
 	cfg.ControlConfig.APIServerPort = DefaultHTTPSPort + 1
 	cfg.ControlConfig.APIServerBindAddress = "0.0.0.0"
 
@@ -70,18 +72,21 @@ func StartCluster(ctx context.Context) (*server.Config, error) {
 	if err != nil {
 		return nil, err
 	}
-	if err := server.StartServer(ctx, &serverCfg); err != nil {
+	// if err := server.StartServer(ctx, &serverCfg); err != nil {
+	// 	return nil, err
+	// }
+	if err := k3s.StartServer(ctx, &serverCfg); err != nil {
 		return nil, err
 	}
 	// run agent
-	agentCfg := cmds.Agent{}
-	err = fillAgentConfig(&agentCfg, &serverCfg)
-	if err != nil {
-		return nil, err
-	}
-	err = agent.Run(ctx, agentCfg)
-	if err != nil {
-		return nil, errors.Wrap(err, "run k3s agent failed")
-	}
+	//agentCfg := cmds.Agent{}
+	//err = fillAgentConfig(&agentCfg, &serverCfg)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//err = agent.Run(ctx, agentCfg)
+	//if err != nil {
+	//	return nil, errors.Wrap(err, "run k3s agent failed")
+	//}
 	return &serverCfg, nil
 }

@@ -3,45 +3,23 @@ module kubeease.com/kubeease/geda
 go 1.16
 
 require (
-	github.com/fatih/color v1.12.0
 	github.com/pkg/errors v0.9.1
 	github.com/rancher/k3s v1.21.5-0.20210816214209-3e250fdbab72
+	github.com/rancher/wrangler v0.6.2
+	github.com/rancher/wrangler-api v0.6.0
+	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.2.1
 	github.com/stretchr/testify v1.7.0
 	go.uber.org/zap v1.19.0
+	k8s.io/api v0.21.4
 	k8s.io/apimachinery v0.21.4
 )
 
 replace (
-	github.com/Microsoft/hcsshim => github.com/Microsoft/hcsshim v0.8.20
-	github.com/benmoss/go-powershell => github.com/k3s-io/go-powershell v0.0.0-20201118222746-51f4c451fbd7
-	github.com/containerd/aufs => github.com/containerd/aufs v1.0.0
-	github.com/containerd/btrfs => github.com/containerd/btrfs v1.0.0
-	github.com/containerd/cgroups => github.com/containerd/cgroups v1.0.1
-	github.com/containerd/console => github.com/containerd/console v1.0.2
-	github.com/containerd/containerd => github.com/k3s-io/containerd v1.4.9-k3s1 // k3s-release/1.4
-	github.com/containerd/continuity => github.com/k3s-io/continuity v0.0.0-20210309170710-f93269e0d5c1
-	github.com/containerd/cri => github.com/k3s-io/cri v1.4.0-k3s.7 // k3s-release/1.4
-	github.com/containerd/fifo => github.com/containerd/fifo v1.0.0
-	github.com/containerd/go-runc => github.com/containerd/go-runc v1.0.0
-	github.com/containerd/ttrpc => github.com/containerd/ttrpc v1.0.2
-	github.com/containerd/typeurl => github.com/containerd/typeurl v1.0.2
-	github.com/containerd/zfs => github.com/containerd/zfs v1.0.0
-	github.com/coreos/go-systemd => github.com/coreos/go-systemd v0.0.0-20190321100706-95778dfbb74e
-	github.com/docker/distribution => github.com/docker/distribution v2.7.1+incompatible
-	github.com/docker/docker => github.com/docker/docker v20.10.2+incompatible
-	github.com/docker/libnetwork => github.com/docker/libnetwork v0.8.0-dev.2.0.20190624125649-f0e46a78ea34
-	github.com/golang/protobuf => github.com/k3s-io/protobuf v1.4.3-k3s1
-	github.com/juju/errors => github.com/k3s-io/nocode v0.0.0-20200630202308-cb097102c09f
+	// github.com/golang/protobuf => github.com/k3s-io/protobuf v1.4.3-k3s1
+	// github.com/juju/errors => github.com/k3s-io/nocode v0.0.0-20200630202308-cb097102c09f
 	github.com/kubernetes-sigs/cri-tools => github.com/k3s-io/cri-tools v1.21.0-k3s1
-	github.com/matryer/moq => github.com/rancher/moq v0.0.0-20190404221404-ee5226d43009
-	github.com/opencontainers/runc => github.com/opencontainers/runc v1.0.0-rc95
-	github.com/opencontainers/runtime-spec => github.com/opencontainers/runtime-spec v1.0.3-0.20210316141917-a8c4a9ee0f6b
 	go.etcd.io/etcd => github.com/k3s-io/etcd v0.5.0-alpha.5.0.20201208200253-50621aee4aea
-	golang.org/x/crypto => golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83
-	golang.org/x/net => golang.org/x/net v0.0.0-20210224082022-3d97a244fca7
-	golang.org/x/sys => golang.org/x/sys v0.0.0-20210225134936-a50acf3fe073
-	google.golang.org/genproto => google.golang.org/genproto v0.0.0-20200513103714-09dca8ec2884
 	google.golang.org/grpc => google.golang.org/grpc v1.27.1
 	gopkg.in/square/go-jose.v2 => gopkg.in/square/go-jose.v2 v2.2.2
 	k8s.io/api => github.com/k3s-io/kubernetes/staging/src/k8s.io/api v1.21.4-k3s1
@@ -72,6 +50,5 @@ replace (
 	k8s.io/sample-apiserver => github.com/k3s-io/kubernetes/staging/src/k8s.io/sample-apiserver v1.21.4-k3s1
 	k8s.io/sample-cli-plugin => github.com/k3s-io/kubernetes/staging/src/k8s.io/sample-cli-plugin v1.21.4-k3s1
 	k8s.io/sample-controller => github.com/k3s-io/kubernetes/staging/src/k8s.io/sample-controller v1.21.4-k3s1
-	mvdan.cc/unparam => mvdan.cc/unparam v0.0.0-20210104141923-aac4ce9116a7
 
 )

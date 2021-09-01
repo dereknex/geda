@@ -125,3 +125,5 @@ Temporary Items
 .apdisk
 .devcontainer/
 .idea/
+.vagrant/
+.vscode/

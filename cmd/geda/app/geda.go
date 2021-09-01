@@ -1,10 +1,9 @@
 package app
 
 import (
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"go.uber.org/zap/zapcore"
 	"kubeease.com/kubeease/geda/cmd/geda/app/provision"
-	"kubeease.com/kubeease/geda/pkg/log"
 )
 
 var global struct {
@@ -17,7 +16,7 @@ func NewCommand() *cobra.Command {
 		Short: "bootstrap kubernetes clusters",
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			if global.Verbosity > 0 {
-				log.SetLevel(zapcore.DebugLevel)
+				log.SetLevel(log.DebugLevel)
 			}
 		},
 	}
